@@ -1,5 +1,5 @@
 import { Database } from '@/integrations/supabase/types';
-import { createClient } from 'neon-js';
+import { createClient } from '@neondatabase/neon-js';
 
 export const supabase = createClient<Database>({
   url: import.meta.env.VITE_NEON_DATA_API_URL,
