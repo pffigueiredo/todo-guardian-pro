@@ -12,7 +12,7 @@
     "type-check": "tsc -p tsconfig.app.json --noEmit"
   },
   "dependencies": {
-    "@neondatabase/neon-js": "^0.1.0-alpha.1",
+    "@neondatabase/neon-js": "/Users/pedro.figueiredo/Documents/git/neon/neon-js",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",
     "@radix-ui/react-aspect-ratio": "^1.1.7",
@@ -41,6 +41,7 @@
     "@radix-ui/react-toggle-group": "^1.1.10",
     "@radix-ui/react-tooltip": "^1.2.7",
     "@tanstack/react-query": "^5.83.0",
+    "better-auth": "^1.3.34",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",

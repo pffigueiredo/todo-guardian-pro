@@ -1,7 +1,7 @@
 -- Create todos table
 CREATE TABLE public.todos (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id uuid NOT NULL,
+  user_id text NOT NULL,
   title text NOT NULL,
   completed boolean NOT NULL DEFAULT false,
   created_at timestamptz NOT NULL DEFAULT now(),
@@ -15,22 +15,22 @@ ALTER TABLE public.todos ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Users can view their own todos"
   ON public.todos
   FOR SELECT
-  USING (auth.uid() = user_id);
+  USING (auth.user_id() = user_id);
 
 CREATE POLICY "Users can create their own todos"
   ON public.todos
   FOR INSERT
-  WITH CHECK (auth.uid() = user_id);
+  WITH CHECK (auth.user_id() = user_id);
 
 CREATE POLICY "Users can update their own todos"
   ON public.todos
   FOR UPDATE
-  USING (auth.uid() = user_id);
+  USING (auth.user_id() = user_id);
 
 CREATE POLICY "Users can delete their own todos"
   ON public.todos
   FOR DELETE
-  USING (auth.uid() = user_id);
+  USING (auth.user_id() = user_id);
 
 -- Create updated_at trigger function
 CREATE OR REPLACE FUNCTION public.update_updated_at_column()
